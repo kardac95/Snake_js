@@ -56,14 +56,14 @@ function printScore() {
 function gameloop() {
 	setBackground("black");
 	renderSnake();
-	var snakeDickSize = 0;
+	var snakeSize = 0;
 	if(gameOver(cp)) {
 		restart();
 		console.log("GAME OVER!!")
 	}
 
 	if(cp.x == foodPos.x && cp.y == foodPos.y) {
-		snakeDickSize += 1;
+		snakeSize += 1;
 		score += 1;
 		printScore();
 		foodPos = {x: randInt(nrBlocks), y: randInt(nrBlocks)}
@@ -72,7 +72,7 @@ function gameloop() {
 	tail.unshift({x:cp.x, y:cp.y});
 	move();
 
-	if(snakeDickSize == 0) {
+	if(snakeSize == 0) {
 		tail.pop();
 	}
 }
